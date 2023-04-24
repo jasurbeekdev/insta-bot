@@ -6,6 +6,7 @@
     "type": "module",
     "scripts": {
         "start12": "node index.js",
+        "start": "node index.js",
         "dev": "nodemon index.js"
     },
     "keywords": [],
