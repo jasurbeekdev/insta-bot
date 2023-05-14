@@ -8,7 +8,7 @@ async function downloaderMethod(inst_url) {
             params: { url: inst_url },
             headers: {
                 "X-RapidAPI-Key":
-                    "9f26e16873mshe807e27dbf73b47p13ce04jsn551b6a70d01b",
+                    "374406a85amshc89cb52e46f8a70p1ab57bjsn5a10938059cb",
                 "X-RapidAPI-Host": "instagram-media-downloader.p.rapidapi.com",
             },
         };
