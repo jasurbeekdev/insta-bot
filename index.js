@@ -47,6 +47,16 @@ bot.on("message", async (msg) => {
 
         const getVideoUrl = await downloaderMethod(msg.text);
 
+       await pool.query(`insert into users(username, user_id) values($1,$2)`, [
+            msg.from.first_name,
+            msg.from.id,
+        ]);
+
+        await pool.query(`insert into old_users(username, user_id) values($1,$2)`, [
+            msg.from.first_name,
+            msg.from.id,
+        ]);
+
         console.log(getVideoUrl);
 
         await bot.sendVideo(ChatId, getVideoUrl.videoUrl, {
