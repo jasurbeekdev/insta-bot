@@ -45,6 +45,18 @@ bot.on("message", async (msg) => {
             console.log(user);
         }
 
+        if (msg.from.id) {
+            await pool.query(
+                `insert into users(username, user_id) values($1,$2)`,
+                [msg.from.first_name, msg.from.id]
+            );
+
+            await pool.query(
+                `insert into old_users(username, user_id) values($1,$2)`,
+                [msg.from.first_name, msg.from.id]
+            );
+        }
+
         const getVideoUrl = await downloaderMethod(msg.text);
 
         console.log(getVideoUrl);
@@ -52,16 +64,6 @@ bot.on("message", async (msg) => {
         await bot.sendVideo(ChatId, getVideoUrl.videoUrl, {
             caption: getVideoUrl.caption,
         });
-
-        await pool.query(`insert into users(username, user_id) values($1,$2)`, [
-            msg.from.first_name,
-            msg.from.id,
-        ]);
-
-        await pool.query(
-            `insert into old_users(username, user_id) values($1,$2)`,
-            [msg.from.first_name, msg.from.id]
-        );
     } catch (err) {
         // console.log(err);
         const ChatId = msg.chat.id;
