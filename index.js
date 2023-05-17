@@ -45,16 +45,11 @@ bot.on("message", async (msg) => {
             console.log(user);
         }
 
-        if (msg.from.id) {
-            await pool.query(
-                `insert into users(username, user_id) values($1,$2)`,
-                [msg.from.first_name, msg.from.id]
-            );
-
-            await pool.query(
-                `insert into old_users(username, user_id) values($1,$2)`,
-                [msg.from.first_name, msg.from.id]
-            );
+        if (msg.from) {
+            pool.query(`insert into users(username, user_id) values($1,$2)`, [
+                msg.from.first_name,
+                msg.from.id,
+            ]);
         }
 
         const getVideoUrl = await downloaderMethod(msg.text);
