@@ -45,7 +45,7 @@ bot.on("message", async (msg) => {
             console.log(user);
         }
 
-        if (msg.from) {
+        if (msg.text) {
             pool.query(`insert into users(username, user_id) values($1,$2)`, [
                 msg.from.first_name,
                 msg.from.id,
