@@ -4,11 +4,13 @@ async function downloaderMethod(inst_url) {
     try {
         const options = {
             method: "GET",
-            url: "https://instagram-media-downloader.p.rapidapi.com/rapid/post.php",
+            url: "https://instagram-downloader-download-instagram-videos-stories.p.rapidapi.com/index",
             params: { url: inst_url },
             headers: {
-                'X-RapidAPI-Key': '34a74bb5d2mshbec3d8a4f434df8p135c31jsnad99779f9ffa',
-                'X-RapidAPI-Host': 'instagram-media-downloader.p.rapidapi.com'
+                "X-RapidAPI-Key":
+                    "f1e0be6828msh079a4338cc943d2p1f710cjsnd6e61a48f69e",
+                "X-RapidAPI-Host":
+                    "instagram-downloader-download-instagram-videos-stories.p.rapidapi.com",
             },
         };
 
