@@ -17,8 +17,8 @@ async function downloaderMethod(inst_url) {
         const response = await axios.request(options);
 
         const result = {
-            videoUrl: response.data.video,
-            caption: response.data.caption,
+            videoUrl: response.data.media,
+            caption: response.caption,
         };
 
         return result;
