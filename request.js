@@ -4,21 +4,20 @@ async function downloaderMethod(inst_url) {
     try {
         const options = {
             method: "GET",
-            url: "https://instagram-downloader-download-instagram-videos-stories.p.rapidapi.com/index",
+            url: "https://instagram-media-downloader.p.rapidapi.com/rapid/post.php",
             params: { url: inst_url },
             headers: {
                 "X-RapidAPI-Key":
-                    "f1e0be6828msh079a4338cc943d2p1f710cjsnd6e61a48f69e",
-                "X-RapidAPI-Host":
-                    "instagram-downloader-download-instagram-videos-stories.p.rapidapi.com",
+                    "0d262f04d4mshcad03c8e6a0ddadp14cd24jsn0314faeeb0b6",
+                "X-RapidAPI-Host": "instagram-media-downloader.p.rapidapi.com",
             },
         };
 
         const response = await axios.request(options);
 
         const result = {
-            videoUrl: response.data.media,
-            caption: response.caption,
+            videoUrl: response.data.video,
+            caption: response.data.caption,
         };
 
         return result;
